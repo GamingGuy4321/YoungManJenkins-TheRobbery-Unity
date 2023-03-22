@@ -13,6 +13,10 @@ public class PlayerMovement : MonoBehaviour
     public float m_moveSpeed;
     static int m_DefaultRunSpeed = 5;
 
+    public GameObject Bullets;
+    public int BulletRounds = 6;
+    public Transform Firepoint;
+
 
     // Start is called before the first frame update
     void Start()
@@ -62,6 +66,14 @@ public class PlayerMovement : MonoBehaviour
                     m_moveSpeed = m_DefaultRunSpeed;
                 
             }
+
+            if(Input.GetKey(KeyCode.Mouse0)){
+                if(BulletRounds >= 1){
+                    m_animator.SetBool("Shoot", true);
+                    Instantiate(Bullets, Firepoint.position, Firepoint.rotation);
+                    BulletRounds -= 1;
+                }
+            }
     }
 
     void FixedUpdate() {
@@ -77,5 +89,6 @@ public class PlayerMovement : MonoBehaviour
         m_animator.SetBool("Right", false);
         m_animator.SetBool("Forward", false);
         m_animator.SetBool("Backward", false);
+        m_animator.SetBool("Shoot", false);
     }
 }
