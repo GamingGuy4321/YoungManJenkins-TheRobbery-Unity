@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -103,7 +103,112 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Train Car 1 NorthSouth WIndow_0
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 570
+        width: 260
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abb41b85a1441fb43913f60196bb2a3a
+      internalID: 947551222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train Car 1 NorthSouth WIndow_1
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 539
+        width: 269
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a715957755885a8418535cec2eb5d0af
+      internalID: -1888420336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train Car 1 NorthSouth WIndow_2
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 505
+        width: 269
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2de58cd027a7724a8489e8be8902b68
+      internalID: 5096029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train Car 1 NorthSouth WIndow_3
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 54
+        width: 250
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2793981ef75da5547bcc05493e257feb
+      internalID: -17670227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train Car 1 NorthSouth WIndow_4
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 1
+        width: 249
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59f7fb717acaadb43b5db4605624ab34
+      internalID: -1961262644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -114,7 +219,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Train Car 1 NorthSouth WIndow_1: -1888420336
+      Train Car 1 NorthSouth WIndow_2: 5096029
+      Train Car 1 NorthSouth WIndow_3: -17670227
+      Train Car 1 NorthSouth WIndow_4: -1961262644
+      Train Car 1 NorthSouth WIndow_0: 947551222
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

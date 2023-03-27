@@ -109,9 +109,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 79
+        y: 307.8
         width: 400
-        height: 302
+        height: 73.2
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,9 +130,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 3
+        y: 231.8
         width: 400
-        height: 75
+        height: 73.2
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,6 +142,69 @@ TextureImporter:
       bones: []
       spriteID: 10bca1b720011e542a3d48ec0ad68008
       internalID: 894230989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train Window Left_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 155.8
+        width: 400
+        height: 73.2
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67089b38708cd6745b09614cfaa10f9b
+      internalID: -1610125825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train Window Left_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 79.8
+        width: 400
+        height: 73.2
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ac4a70cc60958e4498f3ed3521fb8d0
+      internalID: 980847292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train Window Left_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3.800003
+        width: 400
+        height: 73.2
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e1f6d5c3c5186b4c8aed8453eac41ea
+      internalID: -1571530664
       vertices: []
       indices: 
       edges: []
@@ -157,8 +220,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Train Window Left_4: -1571530664
       Train Window Left_0: 1931373378
+      Train Window Left_2: -1610125825
       Train Window Left_1: 894230989
+      Train Window Left_3: 980847292
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
