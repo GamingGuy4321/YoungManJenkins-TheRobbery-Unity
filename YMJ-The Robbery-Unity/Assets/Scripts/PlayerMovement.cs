@@ -15,7 +15,11 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject Bullets;
     public int BulletRounds = 6;
+    public int Clips = 0;
     public Transform Firepoint;
+
+    public bool isCrouching;
+    public Collider2D jenkinsCollider;
 
 
     // Start is called before the first frame update
@@ -23,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     {
         m_rigidbody = GetComponent<Rigidbody2D>();
         m_animator = GetComponent<Animator>();
+        isCrouching = false;
     }
 
     // Update is called once per frame
@@ -67,12 +72,35 @@ public class PlayerMovement : MonoBehaviour
                 
             }
 
-            if(Input.GetKey(KeyCode.Mouse0)){
+            if(Input.GetKeyDown(KeyCode.Mouse0)){
                 if(BulletRounds >= 1){
                     m_animator.SetBool("Shoot", true);
                     Instantiate(Bullets, Firepoint.position, Firepoint.rotation);
                     BulletRounds -= 1;
                 }
+            }
+
+            if(Input.GetKey(KeyCode.R)){
+                if(Clips >= 1){
+                    BulletRounds = 6;
+                    Clips -=1;
+                }
+            }
+
+            if(Input.GetKeyDown(KeyCode.LeftControl)){
+                
+                isCrouching = !isCrouching;
+            }
+            if(isCrouching){
+                m_animator.SetBool("Crouching", true);
+                m_moveSpeed = 0;   
+                m_isMoving = false;
+                jenkinsCollider.enabled = false; 
+            }
+            if(!isCrouching){
+                m_animator.SetBool("Crouching", false);
+                m_moveSpeed = m_DefaultRunSpeed;
+                jenkinsCollider.enabled = true; 
             }
     }
 
@@ -90,5 +118,15 @@ public class PlayerMovement : MonoBehaviour
         m_animator.SetBool("Forward", false);
         m_animator.SetBool("Backward", false);
         m_animator.SetBool("Shoot", false);
+        //m_animator.SetBool("Crouching", false);
+    }
+
+    void OnCollisionEnter2D(Collision2D other) {
+
+        if(other.gameObject.tag == "AmmoBox"){
+              Debug.Log("Picked Up Ammo");
+            Clips +=1;
+            Destroy(other.gameObject);
+        }
     }
 }
