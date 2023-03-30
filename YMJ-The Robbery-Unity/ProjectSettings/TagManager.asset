@@ -7,6 +7,7 @@ TagManager:
   - Bullet
   - PistolEnemy
   - AmmoBox
+  - ShotgunEnemy
   layers:
   - Default
   - TransparentFX

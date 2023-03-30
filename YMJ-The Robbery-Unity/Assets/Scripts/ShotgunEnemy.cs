@@ -2,14 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PistolEnemy : MonoBehaviour
+public class ShotgunEnemy : MonoBehaviour
 {
     Transform Player;
     public Transform FirePoint;
     public GameObject Bullets;
-    public AudioSource source;
-    public AudioClip fire;
     float shootDelay = 0.0f;
+    float cockShotgunDelay = 0.0f;
+    public AudioSource source;
+    public AudioClip cockShotgun;
+    public AudioClip fire;
+    bool hasPlayedSoundEffect = false;
 
     // Start is called before the first frame update
     void Start()
@@ -25,13 +28,19 @@ public class PistolEnemy : MonoBehaviour
     }
 
     void FireBullet(){
-
+        cockShotgunDelay += Time.deltaTime;
         shootDelay += Time.deltaTime;
 
-        if(shootDelay >= 2.0f){
-            source.PlayOneShot(fire);
+        if(cockShotgunDelay >= 2.0f && !hasPlayedSoundEffect){
+            hasPlayedSoundEffect = true;
+            source.PlayOneShot(cockShotgun);
+        }
+        if(shootDelay >= 4.0f ){
             Instantiate(Bullets, FirePoint.position, FirePoint.rotation);
             shootDelay = 0.0f;
+            cockShotgunDelay = 0.0f;
+            source.PlayOneShot(fire);
+            hasPlayedSoundEffect = false;
         }   
     }
 }
