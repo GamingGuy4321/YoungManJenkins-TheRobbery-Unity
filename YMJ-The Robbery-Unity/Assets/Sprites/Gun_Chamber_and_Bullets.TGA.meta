@@ -42,9 +42,9 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
-  spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -103,7 +103,57 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Gun_Chamber_and_Bullets_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 105
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 6, w: 0}
+      outline:
+      - - {x: 0, y: -38.5}
+        - {x: 44, y: 0}
+        - {x: 0, y: 38.5}
+        - {x: -44, y: 0}
+      physicsShape:
+      - - {x: 0, y: -38.5}
+        - {x: 44, y: 0}
+        - {x: 0, y: 38.5}
+        - {x: -44, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16d378c2e8eebe440b11afd4ccbbc9c6
+      internalID: 1520901127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gun_Chamber_and_Bullets_1
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 0
+        width: 71
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a667036394fb2e04393daaf6bdbab59a
+      internalID: 1439141591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -114,7 +164,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Gun_Chamber_and_Bullets_1: 1439141591
+      Gun_Chamber_and_Bullets_0: 1520901127
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

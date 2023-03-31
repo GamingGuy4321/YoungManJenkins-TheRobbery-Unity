@@ -7,12 +7,15 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody2D m_rigidbody;
     public Animator m_animator;
+
     float m_horizontalMovement;
     float m_verticalMovement;
     public bool m_isMoving = false;
     public float m_moveSpeed;
     static int m_DefaultRunSpeed = 5;
 
+    public int Health = 3;
+    
     public GameObject Bullets;
     public int BulletRounds = 6;
     public int Clips = 0;
