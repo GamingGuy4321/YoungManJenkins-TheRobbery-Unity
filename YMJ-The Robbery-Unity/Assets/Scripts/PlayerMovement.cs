@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -22,8 +23,19 @@ public class PlayerMovement : MonoBehaviour
     public Transform Firepoint;
 
     public bool isCrouching;
-    public Collider2D jenkinsCollider;
 
+    public Image imgHealth;
+    public Image imgBullets;
+
+    public AudioSource source;
+    
+    public AudioClip fire;
+    
+    public AudioClip reload;
+
+    float reloadDelay = 0.0f;
+    bool isReloading = false;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -75,20 +87,42 @@ public class PlayerMovement : MonoBehaviour
                 
             }
 
-            if(Input.GetKeyDown(KeyCode.Mouse0)){
+            if(Input.GetKeyDown(KeyCode.Mouse0) && !isCrouching){
                 if(BulletRounds >= 1){
                     m_animator.SetBool("Shoot", true);
+                    Debug.Log("Shoot");
+                    source.PlayOneShot(fire);
                     Instantiate(Bullets, Firepoint.position, Firepoint.rotation);
                     BulletRounds -= 1;
+                    imgBullets.fillAmount -= 1.0f/6;
                 }
             }
 
             if(Input.GetKey(KeyCode.R)){
                 if(Clips >= 1){
-                    BulletRounds = 6;
-                    Clips -=1;
+                    if(reloadDelay == 0){
+                        isReloading = true;
+                        source.PlayOneShot(reload);
+                    }
+                    Debug.Log("Reload");
+
+
                 }
             }
+            if(isReloading){
+                reloadDelay += Time.deltaTime;
+                Debug.Log("Waiting");
+                    
+                if(reloadDelay >= 3.0f ){
+                    Debug.Log("Reloaded");
+                    BulletRounds = 6;
+                    Clips -=1;
+                    imgBullets.fillAmount = 1.0f;
+                    reloadDelay = 0.0f;
+                    isReloading = false;
+                }
+            }
+                    
 
             if(Input.GetKeyDown(KeyCode.LeftControl)){
                 
@@ -96,14 +130,14 @@ public class PlayerMovement : MonoBehaviour
             }
             if(isCrouching){
                 m_animator.SetBool("Crouching", true);
+                Debug.Log("Crouched");
                 m_moveSpeed = 0;   
                 m_isMoving = false;
-                jenkinsCollider.enabled = false; 
             }
             if(!isCrouching){
                 m_animator.SetBool("Crouching", false);
+                Debug.Log("Stopped Crouching");
                 m_moveSpeed = m_DefaultRunSpeed;
-                jenkinsCollider.enabled = true; 
             }
     }
 
@@ -124,11 +158,21 @@ public class PlayerMovement : MonoBehaviour
         //m_animator.SetBool("Crouching", false);
     }
 
-    void OnCollisionEnter2D(Collision2D other) {
+    void OnTriggerEnter2D(Collider2D other) {
 
         if(other.gameObject.tag == "AmmoBox"){
-              Debug.Log("Picked Up Ammo");
+            Debug.Log("Picked Up Ammo");
             Clips +=1;
+            Destroy(other.gameObject);
+        }
+        if(other.gameObject.tag == "ShotgunEnemy" && !isCrouching){
+            Debug.Log("You've been shot");
+            imgHealth.fillAmount -= 1.0f/3;
+            Destroy(other.gameObject);
+        }
+        if(other.gameObject.tag == "PistolEnemy" && !isCrouching){
+            Debug.Log("You've been shot");
+            imgHealth.fillAmount -= 1.0f/3;
             Destroy(other.gameObject);
         }
     }

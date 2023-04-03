@@ -43,4 +43,12 @@ public class ShotgunEnemy : MonoBehaviour
             hasPlayedSoundEffect = false;
         }   
     }
+
+    void OnTriggerEnter2D(Collider2D other) {
+
+        if(other.gameObject.tag == "Bullet"){
+            Debug.Log("You've killed them");
+            Destroy(this);
+        }
+    }
 }

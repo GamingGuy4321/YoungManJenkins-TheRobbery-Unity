@@ -34,4 +34,12 @@ public class PistolEnemy : MonoBehaviour
             shootDelay = 0.0f;
         }   
     }
+
+    void OnTriggerEnter2D(Collider2D other) {
+
+        if(other.gameObject.tag == "Bullet"){
+            Debug.Log("You've killed them");
+            Destroy(this);
+        }
+    }
 }
