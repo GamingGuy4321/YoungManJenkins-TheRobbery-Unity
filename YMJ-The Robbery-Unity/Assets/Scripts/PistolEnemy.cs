@@ -39,7 +39,7 @@ public class PistolEnemy : MonoBehaviour
 
         if(other.gameObject.tag == "Bullet"){
             Debug.Log("You've killed them");
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
 }
