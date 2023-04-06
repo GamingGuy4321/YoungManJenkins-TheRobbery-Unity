@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
-
+    [SerializeField] private GameManager m_gameManager;
+    
     Rigidbody2D m_rigidbody;
     public Animator m_animator;
 
@@ -48,6 +49,18 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!m_gameManager.GetIsPaused()) {
+            // Look for the Esc keypress and pause the game if Esc is pressed.
+            if(Input.GetKeyDown(KeyCode.Escape)) {
+                m_gameManager.PauseGame();
+            }
+         }else {
+            // If the game is paused and the Esc key is pressed, unpause the game.
+            if(Input.GetKeyDown(KeyCode.Escape)) {
+                m_gameManager.UnpauseGame();
+            }
+        }
+
         ResetAnimDirection();
             if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.W)) {
                 // if movement is detected, mark m_isMoving as true
