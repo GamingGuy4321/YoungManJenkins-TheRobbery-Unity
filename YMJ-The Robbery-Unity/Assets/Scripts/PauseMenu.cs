@@ -11,7 +11,6 @@ public class PauseMenu : MonoBehaviour
     public bool m_pauseScreenIsActive = false;
 
     void Start(){
-        m_pauseScreen.SetActive(false);
     }
 
     public void SwitchToPauseScreen() {

@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     float m_verticalMovement;
     public bool m_isMoving = false;
     public float m_moveSpeed;
-    static int m_DefaultRunSpeed = 5;
+    static int m_DefaultRunSpeed = 4;
 
     public int Health = 3;
     
@@ -34,8 +34,12 @@ public class PlayerMovement : MonoBehaviour
     
     public AudioClip reload;
 
-    float reloadDelay = 0.0f;
-    bool isReloading = false;
+    public AudioClip death;
+
+    private float loseTimer = 0.0f;
+    private float reloadDelay = 0.0f;
+    private bool isReloading = false;
+    private bool isDead = false;
     
 
     // Start is called before the first frame update
@@ -44,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
         m_rigidbody = GetComponent<Rigidbody2D>();
         m_animator = GetComponent<Animator>();
         isCrouching = false;
+        loseTimer = 0.0f;
     }
 
     // Update is called once per frame
@@ -58,6 +63,19 @@ public class PlayerMovement : MonoBehaviour
             // If the game is paused and the Esc key is pressed, unpause the game.
             if(Input.GetKeyDown(KeyCode.Escape)) {
                 m_gameManager.UnpauseGame();
+            }
+        }
+
+        if(Health <= 0){
+            loseTimer += Time.deltaTime;
+
+            if(loseTimer <= 0.01f){
+               source.PlayOneShot(death); 
+            }
+            m_animator.SetBool("Dead", true);
+
+            if(loseTimer >= 2.0f){
+                m_gameManager.LoseGame();
             }
         }
 
@@ -143,13 +161,13 @@ public class PlayerMovement : MonoBehaviour
             }
             if(isCrouching){
                 m_animator.SetBool("Crouching", true);
-                Debug.Log("Crouched");
+                //Debug.Log("Crouched");
                 m_moveSpeed = 0;   
                 m_isMoving = false;
             }
             if(!isCrouching){
                 m_animator.SetBool("Crouching", false);
-                Debug.Log("Stopped Crouching");
+                //Debug.Log("Stopped Crouching");
                 m_moveSpeed = m_DefaultRunSpeed;
             }
     }
@@ -181,11 +199,13 @@ public class PlayerMovement : MonoBehaviour
         if(other.gameObject.tag == "ShotgunEnemy" && !isCrouching){
             Debug.Log("You've been shot");
             imgHealth.fillAmount -= 1.0f/3;
+            Health -=1;
             Destroy(other.gameObject);
         }
         if(other.gameObject.tag == "PistolEnemy" && !isCrouching){
             Debug.Log("You've been shot");
             imgHealth.fillAmount -= 1.0f/3;
+            Health -=1;
             Destroy(other.gameObject);
         }
     }

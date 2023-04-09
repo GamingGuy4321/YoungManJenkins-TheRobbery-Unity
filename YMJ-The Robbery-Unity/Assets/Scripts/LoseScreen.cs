@@ -9,11 +9,11 @@ public class LoseScreen : MonoBehaviour
 
     // Variables
     [HideInInspector]
-    public bool m_loseScreenIsActive = true;
+    public bool m_loseScreenIsActive = false;
 
 
     void Start(){
-        m_loseScreen.SetActive(true);
+        m_loseScreen.SetActive(false);
     }
 
     public void SwitchToLoseScreen() {

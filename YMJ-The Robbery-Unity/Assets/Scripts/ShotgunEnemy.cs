@@ -7,12 +7,16 @@ public class ShotgunEnemy : MonoBehaviour
     Transform Player;
     public Transform FirePoint;
     public GameObject Bullets;
-    float shootDelay = 0.0f;
-    float cockShotgunDelay = 0.0f;
+    public float shootDelay = 0.0f;
+    public float cockShotgunDelay = 0.0f;
+    public float deathDelay = 0.0f;
     public AudioSource source;
     public AudioClip cockShotgun;
     public AudioClip fire;
+    public AudioClip death;
+
     bool hasPlayedSoundEffect = false;
+    bool isDead = false;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +28,15 @@ public class ShotgunEnemy : MonoBehaviour
     void Update()
     {
         transform.up = (Player.position - transform.position)*1;
-        FireBullet();
+        if(!isDead){
+            FireBullet();
+        }
+        if(isDead){
+            deathDelay += Time.deltaTime;
+        }
+        if(deathDelay >= 2.5f){
+                Destroy(gameObject);
+        }
     }
 
     void FireBullet(){
@@ -45,10 +57,11 @@ public class ShotgunEnemy : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-
         if(other.gameObject.tag == "Bullet"){
+            isDead = true;
+            source.PlayOneShot(death);
             Debug.Log("You've killed them");
-            Destroy(gameObject);
+            Destroy(other.gameObject);
         }
     }
 }

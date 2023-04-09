@@ -7,22 +7,24 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance = null;
     
+    [SerializeField]
     private GameObject m_pauseMenu;
+    [SerializeField]
     private GameObject m_LoseMenu;
-    private GameObject m_WinMenu;
 
     private bool m_isLost;
-    private bool m_isWon;
     private bool m_isPaused;
 
     public bool GetIsLost(){return m_isLost;}
     public void SetIsLost(bool value){m_isLost = value;}
 
-    public bool GetIsWon(){return m_isWon;}
-    public void SetIsWon(bool value){m_isWon = value;}
-
     public bool GetIsPaused(){return m_isPaused;}
     public void SetIsPaused(bool value){m_isPaused = value;}
+
+    void Awake() {
+        // On Awake, create the instance of the GameManager that will be used for the duration of the program
+        SetInstance();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -30,10 +32,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         m_pauseMenu = GameObject.Find("PauseMenuCanvas");
         m_LoseMenu = GameObject.Find("LoseCanvas");
-        m_WinMenu = GameObject.Find("WinCanvas");
         m_pauseMenu.SetActive(false);
         m_LoseMenu.SetActive(false);
-        m_WinMenu.SetActive(false);
     }
 
     void SetInstance(){

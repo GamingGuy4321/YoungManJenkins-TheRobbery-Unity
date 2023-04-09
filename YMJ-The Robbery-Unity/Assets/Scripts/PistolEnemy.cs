@@ -9,8 +9,10 @@ public class PistolEnemy : MonoBehaviour
     public GameObject Bullets;
     public AudioSource source;
     public AudioClip fire;
-    float shootDelay = 0.0f;
-
+    public AudioClip death;
+    public float shootDelay = 0.0f;
+    public float deathDelay = 0.0f;
+    bool isDead = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +23,15 @@ public class PistolEnemy : MonoBehaviour
     void Update()
     {
         transform.up = (Player.position - transform.position)*1;
-        FireBullet();
+        if(!isDead){
+            FireBullet();
+        }
+        if(isDead){
+            deathDelay += Time.deltaTime;
+        }
+        if(deathDelay >= 2.5f){
+                Destroy(gameObject);
+        }
     }
 
     void FireBullet(){
@@ -38,8 +48,10 @@ public class PistolEnemy : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) {
 
         if(other.gameObject.tag == "Bullet"){
+            isDead = true;
+            source.PlayOneShot(death);
             Debug.Log("You've killed them");
-            Destroy(gameObject);
+            Destroy(other.gameObject);
         }
     }
 }

@@ -122,6 +122,7 @@ MonoBehaviour:
   source: {fileID: 6301220873389204800}
   cockShotgun: {fileID: 8300000, guid: 1ac7b26aafb97f14683aa067829d94a5, type: 3}
   fire: {fileID: 8300000, guid: 91ba9964a828cea4f9896b64b2661930, type: 3}
+  death: {fileID: 8300000, guid: 7ed907883048bfe48bcd0125889390e1, type: 3}
 --- !u!50 &6301220873389204803
 Rigidbody2D:
   serializedVersion: 4

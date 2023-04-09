@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 54320560}
   - component: {fileID: 54320559}
   m_Layer: 5
-  m_Name: RestartButton (1)
+  m_Name: 'MenuButton '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -282,7 +282,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 54320560}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1594330875}
+        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Menu
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &54320560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1186,7 +1198,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05cc8cbaa943d304e84459d62c11bc1b, type: 3}
---- !u!1 &661964910
+--- !u!1 &696629960
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1194,31 +1206,59 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 661964911}
+  - component: {fileID: 696629962}
+  - component: {fileID: 696629961}
+  - component: {fileID: 696629963}
   m_Layer: 0
-  m_Name: Menues
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &661964911
+--- !u!114 &696629961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696629960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf25a273c2027cb43b500b749f4d2f99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_pauseMenu: {fileID: 0}
+  m_LoseMenu: {fileID: 0}
+--- !u!4 &696629962
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 661964910}
+  m_GameObject: {fileID: 696629960}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 405, y: 228, z: 0}
+  m_LocalPosition: {x: 373.14264, y: 411.27512, z: -2.3565931}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1078289412}
-  - {fileID: 726355827}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &696629963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696629960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b3517f7c2c1fb34c9722be89d26da53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_pauseScreen: {fileID: 726355826}
+  m_pauseScreenIsActive: 0
 --- !u!4 &718623098 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 830672013137226377, guid: 5cca1d7b39f41f347b10c64f192f36e5, type: 3}
@@ -1303,12 +1343,12 @@ GameObject:
   - component: {fileID: 726355829}
   - component: {fileID: 726355828}
   m_Layer: 5
-  m_Name: WinCanvas
+  m_Name: PauseMenuCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &726355827
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1324,8 +1364,8 @@ RectTransform:
   - {fileID: 913020780}
   - {fileID: 1517468316}
   - {fileID: 839845311}
-  m_Father: {fileID: 661964911}
-  m_RootOrder: 1
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1472,7 +1512,7 @@ GameObject:
   - component: {fileID: 839845313}
   - component: {fileID: 839845312}
   m_Layer: 5
-  m_Name: RestartButton (2)
+  m_Name: ResumeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1542,7 +1582,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 839845313}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 696629961}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: UnpauseGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &839845313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1649,9 +1701,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Quit
-
-'
+  m_text: Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2145,6 +2195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcee3f27b36cd9044982b51f60cfaf4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_gameManager: {fileID: 696629961}
   m_animator: {fileID: 991129759}
   m_isMoving: 0
   m_moveSpeed: 0
@@ -2159,6 +2210,7 @@ MonoBehaviour:
   source: {fileID: 991129763}
   fire: {fileID: 8300000, guid: fb6ed592d08d2864aab335455b672e22, type: 3}
   reload: {fileID: 8300000, guid: 460ca82f377f56a44891c27639dac3ba, type: 3}
+  death: {fileID: 8300000, guid: 619de19f6baf14e479aeba87e45ce85f, type: 3}
 --- !u!82 &991129763
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2387,7 +2439,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Resume
+  m_text: 'Resume
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2617,7 +2671,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Quit
+  m_text: 'Menu
+
 
 '
   m_isRightToLeft: 0
@@ -2719,7 +2774,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1078289409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2796,8 +2851,8 @@ RectTransform:
   - {fileID: 458760940}
   - {fileID: 1933013061}
   - {fileID: 54320558}
-  m_Father: {fileID: 661964911}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3816,7 +3871,7 @@ GameObject:
   - component: {fileID: 1517468318}
   - component: {fileID: 1517468317}
   m_Layer: 5
-  m_Name: RestartButton (1)
+  m_Name: MenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3886,7 +3941,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1517468318}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1594330875}
+        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Menu
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1517468318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3986,6 +4053,50 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05cc8cbaa943d304e84459d62c11bc1b, type: 3}
+--- !u!1 &1594330874
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1594330876}
+  - component: {fileID: 1594330875}
+  m_Layer: 0
+  m_Name: ChangeScene
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1594330875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594330874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdf92f7a8f4653249beeb874f304c0f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1594330876
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594330874}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 470.36813, y: 292.64386, z: -1.7392747}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1636051924 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 830672013137226377, guid: 5cca1d7b39f41f347b10c64f192f36e5, type: 3}
@@ -4480,7 +4591,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1933013063}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1594330875}
+        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Lvl-1
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1933013063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4576,7 +4699,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1974957462}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.01, y: 10.63, z: -0.47040752}
+  m_LocalPosition: {x: -0.01, y: 10.63, z: 0}
   m_LocalScale: {x: 2, y: 2.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4846,6 +4969,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1698055006}
     m_Modifications:
+    - target: {fileID: 2396768561533527778, guid: ded1899cd4c717e4bbe208fef00c4ab9, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2396768561533527779, guid: ded1899cd4c717e4bbe208fef00c4ab9, type: 3}
       propertyPath: Bullets
       value: 
@@ -5104,6 +5231,10 @@ PrefabInstance:
       propertyPath: Bullets
       value: 
       objectReference: {fileID: 1405306572829444357, guid: 4577ca16532b1404b8f09aa2754c82cf, type: 3}
+    - target: {fileID: 6301220873389204803, guid: 3922c68b6114dba48a739b78838b5aa0, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6301220873389204804, guid: 3922c68b6114dba48a739b78838b5aa0, type: 3}
       propertyPath: m_Name
       value: ShotgunEnemy

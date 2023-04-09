@@ -121,6 +121,7 @@ MonoBehaviour:
   Bullets: {fileID: 1405306572829444357, guid: 47ef0bde477331e42aa1780253b9eb6d, type: 3}
   source: {fileID: 2396768561533527777}
   fire: {fileID: 8300000, guid: fb6ed592d08d2864aab335455b672e22, type: 3}
+  death: {fileID: 8300000, guid: 7ed907883048bfe48bcd0125889390e1, type: 3}
 --- !u!50 &2396768561533527778
 Rigidbody2D:
   serializedVersion: 4
